@@ -8,5 +8,10 @@
 </head>
 {% block body %}
     <h1>Adopt A Pet!</h1>
+    {% for pet in pets %}
+        <div>
+            <H1> {{pet}} <H1>
+        </div>
+    {% endfor %}
 {% endblock %}
 </html>

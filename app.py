@@ -20,12 +20,8 @@ def add_pet():
 
     if form.validate_on_submit():
         name = form.name.data
-        # species = form.species.data
-        # photo = form.photo.data
-        # age = form.age.data
-        # notes = form.notes.data
         flash(f"Successfully added {name}!")
-        return redirect("/add")
+        return redirect("/add", pets=['1', '2'])
 
     else:
         return render_template("add-pet-form.html", form=form)
