@@ -1,12 +1,17 @@
 from flask import Flask, request, render_template, redirect, flash
 from flask_debugtoolbar import DebugToolbarExtension
+from models import db, connect_db, Pet
 from forms import AddPetForm
 
 app = Flask(__name__)
 
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://michelle:1003866Ma@localhost/pet_database'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_ECHO'] = True
 app.config['SECRET_KEY'] = "a secret!"
-
 debug = DebugToolbarExtension(app)
+
+connect_db(app)
 
 @app.route("/")
 def render_homepage():

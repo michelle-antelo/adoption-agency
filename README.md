@@ -8,6 +8,13 @@
 ## Stop DB
     $ \q
 
+## Seed Database
+    $ psql -d pet_database -a -f pets.sql   
+
+## Installing Flask SQL Alchemy
+    $ pip install psycopg2-binary
+    $ pip install flask-sqlalchemy
+
 ## Start Server
     $ flask run
 
