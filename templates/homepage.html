@@ -8,10 +8,15 @@
 </head>
 {% block body %}
     <h1>Adopt A Pet!</h1>
-    {% for pet in pets %}
+    <ul>
+        {% for pet in pets %}
         <div>
-            <H1> {{pet}} <H1>
+            <h1>{{ pet.name }}</h1>
+            <img src="{{ pet.photo_url }}">
+            <p1>{{ pet.name }} is {{ pet.available }}</p1>
+            <a href="/{{ pet.id }}">Learn More!</a>
         </div>
-    {% endfor %}
+        {% endfor %}
+    </ul>
 {% endblock %}
 </html>

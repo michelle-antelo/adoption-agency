@@ -10,7 +10,7 @@ class Pet(db.Model):
 
     __tablename__ = "pets"
 
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.Text, nullable=False)
     species = db.Column(db.Text, nullable=False)
     photo_url = db.Column(db.Text)
@@ -18,11 +18,16 @@ class Pet(db.Model):
     notes = db.Column(db.Text)
     available = db.Column(db.Boolean, nullable=False, default=True)
 
+    def __repr__(self):
+        """Show info about pet."""
+
+        p = self
+        return f"<Pet {p.id} {p.name} {p.species} {p.photo_url} {p.age} {p.notes} {p.available}>"
+
     def image_url(self):
         """Submitted image or default image"""
 
         return self.photo_url or DEFAULT_IMAGE
-
 
 def connect_db(app):
     """Connect to database"""
