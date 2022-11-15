@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Profile</title>
+</head>
+{% extends "layout.html" %}
+{% block body %}
+    <h1>{{ pet_data.name }}</h1>
+    <img src="{{ pet_data.photo_url }}">
+    <div>
+        <h2>All about me!</h2>
+        <p1>Hi! My name is {{ pet_data.name}}! I'm a {{ pet_data.age }} year old {{ pet_data.species }}!</p1>
+    </div>
+    <div>
+        <p1>Consider taking me home today!</p1>
+    </div>
+    <div>
+        <p1>{{ pet_data.name }} is {% if pet_data.available %} available {% else %} not available {% endif %}</p1>
+    </div>
+    <div>
+        <p1>Other Notes: {{ pet_data.notes }}</p1>
+    </div>
+    <form action="/">
+        <button type="submit">Home</button>
+    </form>
+    <form action="/{{pet_data.id}}/edit">
+        <button type="submit">Edit</button>
+    </form>
+{% endblock %}
+</html>

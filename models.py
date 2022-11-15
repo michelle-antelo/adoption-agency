@@ -24,10 +24,16 @@ class Pet(db.Model):
         p = self
         return f"<Pet {p.id} {p.name} {p.species} {p.photo_url} {p.age} {p.notes} {p.available}>"
 
-    def image_url(self):
-        """Submitted image or default image"""
+    def update_pet(self, pet):
+        """Update Pet"""
+        self.name = pet.name
+        self.species = pet.species
+        self.photo_url = pet.photo_url
+        self.age = pet.age
+        self.notes = pet.notes
 
-        return self.photo_url or DEFAULT_IMAGE
+        print("hello BOb: ", self.name)
+        return 
 
 def connect_db(app):
     """Connect to database"""
