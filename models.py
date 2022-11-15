@@ -1,9 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 
-DEFAULT_IMAGE = "https://64.media.tumblr.com/58ad30500e096781e56e5f31e50c561c/0767393739a2484f-05/s540x810/2bfbc14411783260ef0d80c4cafd99a55a12aca1.pnj"
-
 db = SQLAlchemy()
-
 
 class Pet(db.Model):
     """Pet Database"""
@@ -23,17 +20,6 @@ class Pet(db.Model):
 
         p = self
         return f"<Pet {p.id} {p.name} {p.species} {p.photo_url} {p.age} {p.notes} {p.available}>"
-
-    def update_pet(self, pet):
-        """Update Pet"""
-        self.name = pet.name
-        self.species = pet.species
-        self.photo_url = pet.photo_url
-        self.age = pet.age
-        self.notes = pet.notes
-
-        print("hello BOb: ", self.name)
-        return 
 
 def connect_db(app):
     """Connect to database"""

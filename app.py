@@ -67,7 +67,6 @@ def edit_pet(pet_id):
         pet.age = form.age.data
         pet.notes = form.notes.data
 
-        # pet.update_pet(pet=pet)
         db.session.commit()
         flash(f"Successfully updated {name}!")
         return redirect(f"/{pet.id}")
